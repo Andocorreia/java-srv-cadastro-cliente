@@ -16,7 +16,7 @@ import java.util.List;
 public class ConsultaClienteRepositoryImp implements ConsultaClienteRepository {
 
     @Value("${clientes.url}")
-    private String url;
+    private String uri;
 
     @Autowired
     private WebClient.Builder webClientBuilder;
@@ -25,6 +25,7 @@ public class ConsultaClienteRepositoryImp implements ConsultaClienteRepository {
     ClienteMapper clienteMapper;
 
     public Collection<Cliente> consultarCliente() {
+        String url = uri + "/listar-clientes";
         List<ClienteRepositoryResponse> clienteResponse =
                 webClientBuilder.build().get().uri(url).retrieve().bodyToFlux(ClienteRepositoryResponse.class)
                         .collectList().block();
@@ -34,5 +35,17 @@ public class ConsultaClienteRepositoryImp implements ConsultaClienteRepository {
         }
 
         return Collections.EMPTY_LIST;
+    }
+
+    @Override
+    public Cliente consultarClienteById(int id) {
+        String url = uri + "/detalhe-cliente/" + id;
+        ClienteRepositoryResponse clienteResponse =
+                webClientBuilder.build().get().uri(url).retrieve().bodyToMono(ClienteRepositoryResponse.class).block();
+
+        if (clienteResponse != null) {
+            return clienteMapper.toCliente(clienteResponse);
+        }
+        return null;
     }
 }

@@ -6,4 +6,6 @@ import java.util.Collection;
 
 public interface ConsultaClienteRepository {
     Collection<Cliente> consultarCliente();
+
+    Cliente consultarClienteById(int id);
 }

@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Endereco {
+public class ClienteEndereco {
     private String cep;
     private String rua;
     private Integer numero;

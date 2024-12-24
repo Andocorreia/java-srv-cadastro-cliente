@@ -1,23 +1,20 @@
-package br.com.cadastro.cliente.srv_cliente.application.model;
+package br.com.cadastro.cliente.srv_cliente.application.repository.request;
 
-import lombok.AllArgsConstructor;
+import br.com.cadastro.cliente.srv_cliente.application.repository.response.ClienteEnderecoRepositoryResponse;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-public class Cliente {
+public class ClienteRepositoryRequest {
     private Integer id;
     private String nome;
     private String cpf;
     private String email;
     private String telefone;
-    private ClienteEndereco endereco;
+    private ClienteEnderecoRepositoryRequest endereco;
     private String sexo;
     private LocalDate dataNascimento;
     private LocalDate dataCadastro;
