@@ -12,7 +12,7 @@ public class AtualizaClienteImp implements AtualizaCliente {
     AtualizaClienteRepository atualizaClienteRepository;
 
     @Override
-    public Cliente atualizarCliente(Cliente cliente) {
-        return atualizaClienteRepository.atualizarCliente(cliente);
+    public Cliente atualizar(Cliente cliente) {
+        return atualizaClienteRepository.atualizar(cliente);
     }
 }

@@ -14,12 +14,12 @@ public class ConsultaClienteImp implements ConsultaCliente {
     ConsultaClienteRepository consultaClienteRepository;
 
     @Override
-    public Collection<Cliente> consultarCliente() {
-        return consultaClienteRepository.consultarCliente();
+    public Collection<Cliente> consultar() {
+        return consultaClienteRepository.consultar();
     }
 
     @Override
-    public Cliente consultarClienteById(int id) {
-        return consultaClienteRepository.consultarClienteById(id);
+    public Cliente consultarById(int id) {
+        return consultaClienteRepository.consultarById(id);
     }
 }

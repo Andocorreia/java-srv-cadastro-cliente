@@ -5,7 +5,7 @@ import br.com.cadastro.cliente.srv_cliente.application.model.Cliente;
 import java.util.Collection;
 
 public interface ConsultaCliente {
-    Collection<Cliente> consultarCliente();
+    Collection<Cliente> consultar();
 
-    Cliente consultarClienteById(int id);
+    Cliente consultarById(int id);
 }

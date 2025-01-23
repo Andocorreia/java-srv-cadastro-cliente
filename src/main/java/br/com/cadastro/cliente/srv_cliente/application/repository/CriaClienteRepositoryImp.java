@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Service
-public class AtualizaClienteRepositoryImp implements AtualizaClienteRepository {
+public class CriaClienteRepositoryImp implements CriaClienteRepository {
 
     @Value("${clientes.url}")
     private String uri;
@@ -21,19 +21,13 @@ public class AtualizaClienteRepositoryImp implements AtualizaClienteRepository {
     @Autowired
     ClienteMapper clienteMapper;
 
-    @Override
-    public Cliente atualizar(Cliente cliente) {
 
-        String url = uri + "/alterar-cliente" ;
+    @Override
+    public void criar(Cliente cliente) {
+        String url = uri + "/cadastrar-cliente" ;
 
         ClienteRepositoryRequest request = clienteMapper.toClienteRepositoryRequest(cliente);
+        webClientBuilder.build().post().uri(url).bodyValue(request).retrieve().bodyToMono(Void.class).block();
 
-        ClienteRepositoryResponse clienteResponse =
-                webClientBuilder.build().put().uri(url).bodyValue(request).retrieve().bodyToMono(ClienteRepositoryResponse.class).block();
-
-        if (clienteResponse != null) {
-            return clienteMapper.toCliente(clienteResponse);
-        }
-        return null;
     }
 }

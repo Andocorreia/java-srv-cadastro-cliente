@@ -5,13 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DeleteClienteImp implements DeleteCliente {
+public class DeletaClienteImp implements DeletaCliente {
 
     @Autowired
     DetetaClienteRepository detetaClienteRepository;
 
     @Override
-    public void deletarCliente(int id) {
+    public void deletar(int id) {
         detetaClienteRepository.deleteById(id);
     }
 }

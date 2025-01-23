@@ -24,7 +24,7 @@ public class ConsultaClienteRepositoryImp implements ConsultaClienteRepository {
     @Autowired
     ClienteMapper clienteMapper;
 
-    public Collection<Cliente> consultarCliente() {
+    public Collection<Cliente> consultar() {
         String url = uri + "/listar-clientes";
         List<ClienteRepositoryResponse> clienteResponse =
                 webClientBuilder.build().get().uri(url).retrieve().bodyToFlux(ClienteRepositoryResponse.class)
@@ -38,7 +38,7 @@ public class ConsultaClienteRepositoryImp implements ConsultaClienteRepository {
     }
 
     @Override
-    public Cliente consultarClienteById(int id) {
+    public Cliente consultarById(int id) {
         String url = uri + "/detalhe-cliente/" + id;
         ClienteRepositoryResponse clienteResponse =
                 webClientBuilder.build().get().uri(url).retrieve().bodyToMono(ClienteRepositoryResponse.class).block();
