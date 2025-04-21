@@ -1,5 +1,15 @@
 # java-srv-cadastro-cliente
-SRV para cadastrar um cliente version v18.20.5
+SRV em Java para cadastrar um cliente
+
+# Integrações
+- FED : https://github.com/Andocorreia/angular-fed-cadastro-cliente
+- BFF : https://github.com/Andocorreia/node-bff-cadastro-cliente
+- SRV : https://github.com/Andocorreia/java-srv-cadastro-cliente
+
+## Stack
+- Java 21
+- Spring Boot
+- Maven
 
 ## Development server
 
